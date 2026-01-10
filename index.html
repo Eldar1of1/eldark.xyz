@@ -37,7 +37,7 @@
 
     .card {
       width: 100%;
-      max-width: 460px;
+      max-width: 480px;
       background: var(--bg-card);
       backdrop-filter: blur(12px);
       border-radius: 20px;
@@ -45,18 +45,18 @@
       box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.6),
         inset 0 0 0 1px rgba(148, 163, 184, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: fadeUp 0.8s ease;
     }
 
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+    }
+
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -69,10 +69,16 @@
       color: var(--accent);
       font-size: 14px;
       margin-bottom: 18px;
+      overflow: hidden;
+      border-right: 2px solid var(--accent);
+      white-space: nowrap;
+      animation: typing 2.5s steps(30) 1, blink 0.75s step-end infinite;
     }
 
-    /* ---------- TABS ---------- */
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
 
+    /* ---------- TABS ---------- */
     .tabs {
       display: flex;
       gap: 10px;
@@ -103,22 +109,16 @@
 
     .tab-content {
       display: none;
-      animation: fade 0.3s ease;
+      animation: fadeSlide 0.4s ease;
     }
 
     .tab-content.active {
       display: block;
     }
 
-    @keyframes fade {
-      from {
-        opacity: 0;
-        transform: translateY(6px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     p {
@@ -138,14 +138,56 @@
       color: #cbd5f5;
     }
 
+    /* ---------- TAGS ---------- */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: #cbd5f5;
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      transition: all 0.25s ease;
+    }
+
+    .tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    /* ---------- LINKS ---------- */
     a {
       color: var(--accent-soft);
       text-decoration: none;
       font-weight: 500;
+      position: relative;
     }
 
-    a:hover {
-      text-decoration: underline;
+    a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: var(--accent-soft);
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    a:hover::after { width: 100%; }
+
+    .links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     footer {
@@ -156,13 +198,8 @@
     }
 
     @media (max-width: 480px) {
-      .card {
-        padding: 26px;
-      }
-
-      h1 {
-        font-size: 26px;
-      }
+      .card { padding: 26px; }
+      h1 { font-size: 26px; }
     }
   </style>
 </head>
@@ -185,6 +222,13 @@
         IT student focused on Linux systems, DevOps practices and cloud infrastructure.
         Learning by building real projects and understanding how things work under the hood.
       </p>
+      <div class="tags">
+        <div class="tag">Linux</div>
+        <div class="tag">DNS</div>
+        <div class="tag">Cloudflare</div>
+        <div class="tag">Git</div>
+        <div class="tag">DevOps</div>
+      </div>
     </div>
 
     <!-- Projects -->
@@ -193,7 +237,7 @@
         <li>🖥 Linux server setup & hardening</li>
         <li>🌐 DNS, SPF, DKIM, DMARC configuration</li>
         <li>☁ Cloudflare Pages & security</li>
-        <li>🔧 Git, CI basics, automation</li>
+        <li>🔧 Git, CI/CD basics, automation</li>
       </ul>
     </div>
 
