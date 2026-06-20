@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eldar Karayev | Cybersecurity</title>
+  <title>Eldar Karayev — Cybersecurity</title>
 
   <style>
     :root {
-      --bg: #080b12;
-      --bg-2: #0f172a;
-      --card: rgba(15, 23, 42, 0.72);
-      --card-border: rgba(148, 163, 184, 0.18);
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-2: #22c55e;
-      --accent-3: #a78bfa;
-      --danger: #fb7185;
-      --shadow: rgba(0, 0, 0, 0.45);
+      --bg: #f6f3ee;
+      --bg-soft: #fffaf2;
+      --text: #151515;
+      --muted: #6b665f;
+      --line: rgba(21, 21, 21, 0.12);
+      --dark: #111827;
+      --blue: #2563eb;
+      --orange: #f97316;
+      --green: #16a34a;
+      --card: #ffffff;
+      --shadow: 0 24px 70px rgba(17, 24, 39, 0.12);
     }
 
     * {
@@ -27,27 +27,13 @@
 
     body {
       margin: 0;
-      min-height: 100vh;
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 34%),
-        radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 28%),
-        radial-gradient(circle at bottom, rgba(167, 139, 250, 0.16), transparent 34%),
+        radial-gradient(circle at 10% 10%, rgba(249, 115, 22, 0.16), transparent 28%),
+        radial-gradient(circle at 90% 8%, rgba(37, 99, 235, 0.16), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(22, 163, 74, 0.12), transparent 30%),
         var(--bg);
       color: var(--text);
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 44px 44px;
-      pointer-events: none;
-      z-index: 0;
     }
 
     a {
@@ -58,35 +44,33 @@
     .container {
       width: min(1120px, calc(100% - 36px));
       margin: 0 auto;
-      position: relative;
-      z-index: 1;
     }
 
     header {
-      padding: 24px 0;
+      padding: 28px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .brand {
+    .logo {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.4px;
+      font-weight: 900;
+      letter-spacing: -0.4px;
     }
 
-    .brand-icon {
+    .logo-mark {
       width: 42px;
       height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #020617;
+      border-radius: 50%;
+      background: var(--dark);
+      color: white;
       display: grid;
       place-items: center;
-      font-weight: 900;
-      box-shadow: 0 14px 34px rgba(56, 189, 248, 0.28);
+      font-size: 14px;
+      box-shadow: 0 10px 30px rgba(17, 24, 39, 0.22);
     }
 
     nav {
@@ -94,277 +78,280 @@
       gap: 22px;
       color: var(--muted);
       font-size: 14px;
-    }
-
-    nav a {
-      transition: color 0.2s ease;
+      font-weight: 600;
     }
 
     nav a:hover {
-      color: var(--accent);
+      color: var(--text);
     }
 
     .hero {
-      min-height: calc(100vh - 90px);
+      min-height: calc(100vh - 98px);
       display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 34px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
       align-items: center;
-      padding: 40px 0 70px;
+      padding: 40px 0 80px;
     }
 
-    .status {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 9px 14px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.72);
-      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.58);
+      backdrop-filter: blur(12px);
       color: var(--muted);
       font-size: 14px;
-      margin-bottom: 22px;
+      font-weight: 700;
+      margin-bottom: 24px;
     }
 
-    .pulse {
+    .eyebrow-dot {
       width: 9px;
       height: 9px;
+      background: var(--green);
       border-radius: 50%;
-      background: var(--accent-2);
-      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-      70% { box-shadow: 0 0 0 12px rgba(34, 197, 94, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+      box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.12);
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 0.95;
-      letter-spacing: -2.8px;
+      max-width: 760px;
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: 0.92;
+      letter-spacing: -4px;
     }
 
-    .gradient-text {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent-3));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .accent {
+      color: var(--blue);
     }
 
     .hero-text {
-      margin-top: 24px;
-      max-width: 640px;
+      margin-top: 28px;
+      max-width: 650px;
       color: var(--muted);
-      font-size: 18px;
+      font-size: 19px;
       line-height: 1.8;
     }
 
     .hero-text strong {
       color: var(--text);
-      font-weight: 700;
     }
 
-    .buttons {
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 32px;
+      margin-top: 34px;
     }
 
     .btn {
-      padding: 14px 18px;
-      border-radius: 16px;
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 20px;
+      border-radius: 999px;
       font-size: 14px;
-      border: 1px solid var(--card-border);
-      transition: all 0.22s ease;
+      font-weight: 900;
+      transition: 0.22s ease;
+      border: 1px solid var(--line);
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      border-color: var(--accent);
     }
 
     .btn.primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #020617;
-      border: none;
+      background: var(--dark);
+      color: white;
+      box-shadow: 0 16px 40px rgba(17, 24, 39, 0.2);
     }
 
     .btn.secondary {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(255, 255, 255, 0.62);
       color: var(--text);
+      backdrop-filter: blur(12px);
     }
 
-    .security-card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 28px;
-      box-shadow: 0 26px 70px var(--shadow);
+    .profile-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      position: relative;
       overflow: hidden;
-      backdrop-filter: blur(16px);
     }
 
-    .card-top {
-      height: 46px;
-      border-bottom: 1px solid var(--card-border);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0 18px;
-      background: rgba(2, 6, 23, 0.62);
-    }
-
-    .circle {
-      width: 11px;
-      height: 11px;
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: rgba(249, 115, 22, 0.16);
       border-radius: 50%;
+      top: -80px;
+      right: -70px;
     }
 
-    .red { background: #fb7185; }
-    .yellow { background: #facc15; }
-    .green { background: #22c55e; }
-
-    .card-body {
-      padding: 26px;
+    .profile-card-content {
+      position: relative;
+      z-index: 1;
     }
 
-    .scan-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-      font-family: "SFMono-Regular", Consolas, monospace;
-      font-size: 13px;
+    .big-number {
+      font-size: 74px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -4px;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .profile-card h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      letter-spacing: -1px;
+    }
+
+    .profile-card p {
+      margin: 0;
       color: var(--muted);
+      line-height: 1.7;
+      font-size: 16px;
     }
 
-    .scan-title span:last-child {
-      color: var(--accent-2);
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
     }
 
-    .metric {
-      margin: 18px 0;
+    .mini-item {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(246, 243, 238, 0.78);
+      border: 1px solid var(--line);
     }
 
-    .metric-head {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      font-size: 14px;
-      color: #cbd5e1;
-    }
-
-    .bar {
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.16);
-      overflow: hidden;
-    }
-
-    .bar span {
+    .mini-item span {
       display: block;
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    }
-
-    .terminal {
-      margin-top: 24px;
-      background: rgba(2, 6, 23, 0.74);
-      border: 1px solid rgba(148, 163, 184, 0.12);
-      border-radius: 18px;
-      padding: 18px;
-      font-family: "SFMono-Regular", Consolas, monospace;
+      color: var(--muted);
       font-size: 13px;
-      line-height: 1.8;
-      color: #cbd5e1;
+      font-weight: 700;
+      margin-bottom: 5px;
     }
 
-    .cmd {
-      color: var(--accent);
-    }
-
-    .ok {
-      color: var(--accent-2);
-    }
-
-    .comment {
-      color: #64748b;
+    .mini-item strong {
+      font-size: 16px;
     }
 
     section {
-      padding: 70px 0;
+      padding: 78px 0;
     }
 
-    .section-head {
-      display: flex;
-      justify-content: space-between;
+    .section-title {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 36px;
+      margin-bottom: 30px;
       align-items: end;
-      gap: 22px;
-      margin-bottom: 28px;
     }
 
-    h2 {
+    .section-title h2 {
       margin: 0;
-      font-size: clamp(28px, 4vw, 40px);
-      letter-spacing: -1.2px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -2px;
     }
 
-    .section-head p {
+    .section-title p {
       margin: 0;
-      max-width: 560px;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.8;
+      font-size: 17px;
     }
 
-    .grid {
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .info-card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 24px;
-      transition: all 0.22s ease;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+    .card {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      min-height: 250px;
+      transition: 0.22s ease;
+      backdrop-filter: blur(14px);
     }
 
-    .info-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(56, 189, 248, 0.45);
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 48px rgba(17, 24, 39, 0.1);
     }
 
-    .icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 16px;
+    .card-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
       display: grid;
       place-items: center;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.22);
-      color: var(--accent);
+      background: var(--dark);
+      color: white;
+      font-weight: 900;
+      margin-bottom: 26px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
       font-size: 22px;
-      margin-bottom: 18px;
+      letter-spacing: -0.6px;
     }
 
-    .info-card h3 {
-      margin: 0 0 10px;
-      font-size: 19px;
-    }
-
-    .info-card p {
+    .card p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
       font-size: 15px;
+    }
+
+    .strip {
+      background: var(--dark);
+      color: white;
+      border-radius: 34px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      box-shadow: 0 28px 70px rgba(17, 24, 39, 0.24);
+    }
+
+    .strip h2 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 4vw, 46px);
+      letter-spacing: -1.6px;
+    }
+
+    .strip p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.8;
+      max-width: 720px;
+    }
+
+    .strip .btn {
+      background: white;
+      color: var(--dark);
+      border: none;
+      white-space: nowrap;
     }
 
     .skills {
@@ -374,44 +361,21 @@
     }
 
     .skill {
-      padding: 10px 14px;
+      padding: 12px 16px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.72);
-      border: 1px solid var(--card-border);
-      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-weight: 800;
       font-size: 14px;
-      transition: all 0.2s ease;
+      transition: 0.2s ease;
     }
 
     .skill:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .work-box {
-      background:
-        linear-gradient(135deg, rgba(56, 189, 248, 0.13), rgba(34, 197, 94, 0.09)),
-        var(--card);
-      border: 1px solid rgba(56, 189, 248, 0.28);
-      border-radius: 28px;
-      padding: 34px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 28px;
-      align-items: center;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.28);
-    }
-
-    .work-box h2 {
-      margin-bottom: 14px;
-    }
-
-    .work-box p {
-      color: var(--muted);
-      line-height: 1.8;
-      margin: 0;
-      max-width: 720px;
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue);
+      transform: translateY(-3px);
     }
 
     .contact-grid {
@@ -420,56 +384,73 @@
       gap: 18px;
     }
 
-    .contact-card {
-      background: rgba(15, 23, 42, 0.74);
-      border: 1px solid var(--card-border);
-      border-radius: 22px;
-      padding: 22px;
-      transition: all 0.22s ease;
+    .contact {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      transition: 0.22s ease;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .contact-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
+    .contact:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 48px rgba(17, 24, 39, 0.1);
     }
 
-    .contact-card span {
-      display: block;
+    .contact span {
       color: var(--muted);
+      font-weight: 800;
       font-size: 13px;
-      margin-bottom: 8px;
     }
 
-    .contact-card strong {
-      font-size: 16px;
-      color: var(--text);
+    .contact strong {
+      display: block;
+      margin-top: 18px;
+      font-size: 18px;
+      letter-spacing: -0.3px;
     }
 
     footer {
-      padding: 36px 0;
-      color: #64748b;
-      text-align: center;
+      padding: 42px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
       font-size: 14px;
-      border-top: 1px solid rgba(148, 163, 184, 0.12);
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 36px;
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 920px) {
+      nav {
+        display: none;
       }
 
-      .grid,
+      .hero,
+      .section-title,
+      .strip {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
       .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .work-box {
-        grid-template-columns: 1fr;
+      .hero {
+        min-height: auto;
+        padding-top: 36px;
       }
 
-      nav {
-        display: none;
+      h1 {
+        letter-spacing: -2.5px;
       }
     }
 
@@ -478,25 +459,30 @@
         width: min(100% - 24px, 1120px);
       }
 
+      header {
+        padding: 20px 0;
+      }
+
       h1 {
-        letter-spacing: -1.6px;
+        font-size: 48px;
       }
 
       .hero-text {
         font-size: 16px;
       }
 
-      .buttons {
+      .actions {
         flex-direction: column;
       }
 
       .btn {
-        text-align: center;
+        width: 100%;
       }
 
-      .section-head {
-        flex-direction: column;
-        align-items: flex-start;
+      .profile-card,
+      .strip {
+        border-radius: 26px;
+        padding: 24px;
       }
     }
   </style>
@@ -505,14 +491,14 @@
 <body>
   <div class="container">
     <header>
-      <a href="#" class="brand">
-        <div class="brand-icon">EK</div>
+      <a href="#" class="logo">
+        <span class="logo-mark">EK</span>
         <span>Eldar Karayev</span>
       </a>
 
       <nav>
         <a href="#about">About</a>
-        <a href="#focus">Focus</a>
+        <a href="#work">Work</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -521,201 +507,163 @@
     <main>
       <section class="hero">
         <div>
-          <div class="status">
-            <span class="pulse"></span>
-            Open to cybersecurity opportunities
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Cybersecurity • SOC • Linux • Networks
           </div>
 
           <h1>
-            Cybersecurity<br>
-            <span class="gradient-text">Student & Analyst</span>
+            Building my path in <span class="accent">cybersecurity.</span>
           </h1>
 
           <p class="hero-text">
-            I am Eldar Karayev, an IT student focused on <strong>cybersecurity, Linux systems,
-            network security and SOC analysis</strong>. I am building my skills through practice,
-            labs and real technical projects.
+            My name is <strong>Eldar Karayev</strong>. I am focused on cybersecurity,
+            defensive security, Linux systems and network fundamentals.
+            I am developing practical skills step by step and looking for real
+            opportunities to grow in the field.
           </p>
 
           <p class="hero-text">
-            My goal is to grow into a strong cybersecurity specialist and join a team where I can
-            help monitor, investigate and protect systems from real threats.
+            I am interested in SOC analysis, security monitoring, incident investigation,
+            logs, networks and the technical foundation behind secure systems.
           </p>
 
-          <div class="buttons">
-            <a class="btn primary" href="mailto:eldar@eldark.xyz">Contact Me</a>
-            <a class="btn secondary" href="https://github.com/Eldar1of1" target="_blank">View GitHub</a>
-            <a class="btn secondary" href="#focus">My Focus</a>
+          <div class="actions">
+            <a class="btn primary" href="mailto:eldar@eldark.xyz">Contact me</a>
+            <a class="btn secondary" href="https://github.com/Eldar1of1" target="_blank">GitHub</a>
+            <a class="btn secondary" href="https://t.me/eldar_kar" target="_blank">Telegram</a>
           </div>
         </div>
 
-        <div class="security-card">
-          <div class="card-top">
-            <span class="circle red"></span>
-            <span class="circle yellow"></span>
-            <span class="circle green"></span>
-          </div>
+        <aside class="profile-card">
+          <div class="profile-card-content">
+            <div class="big-number">01</div>
+            <h2>Open to first serious opportunities</h2>
+            <p>
+              I am looking for an internship, junior role or entry-level position
+              where I can learn from real tasks and become useful to a security team.
+            </p>
 
-          <div class="card-body">
-            <div class="scan-title">
-              <span>security-profile.scan</span>
-              <span>active</span>
-            </div>
-
-            <div class="metric">
-              <div class="metric-head">
-                <span>Linux & Systems</span>
-                <span>learning</span>
+            <div class="mini-list">
+              <div class="mini-item">
+                <span>Direction</span>
+                <strong>Cybersecurity / SOC / Blue Team</strong>
               </div>
-              <div class="bar"><span style="width: 78%;"></span></div>
-            </div>
 
-            <div class="metric">
-              <div class="metric-head">
-                <span>Networking</span>
-                <span>practicing</span>
+              <div class="mini-item">
+                <span>Current focus</span>
+                <strong>Linux, networking, security basics</strong>
               </div>
-              <div class="bar"><span style="width: 68%;"></span></div>
-            </div>
 
-            <div class="metric">
-              <div class="metric-head">
-                <span>SOC Analysis</span>
-                <span>focused</span>
+              <div class="mini-item">
+                <span>Mindset</span>
+                <strong>Disciplined, curious, ready to learn</strong>
               </div>
-              <div class="bar"><span style="width: 72%;"></span></div>
-            </div>
-
-            <div class="metric">
-              <div class="metric-head">
-                <span>Security Mindset</span>
-                <span>growing</span>
-              </div>
-              <div class="bar"><span style="width: 84%;"></span></div>
-            </div>
-
-            <div class="terminal">
-              <div><span class="cmd">$ whoami</span></div>
-              <div>Eldar Karayev</div>
-              <br>
-              <div><span class="cmd">$ focus --now</span></div>
-              <div class="ok">Cybersecurity • SOC • Linux • Networks</div>
-              <br>
-              <div><span class="cmd">$ status</span></div>
-              <div class="comment">Looking for junior / internship opportunities</div>
             </div>
           </div>
-        </div>
+        </aside>
       </section>
 
       <section id="about">
-        <div class="section-head">
-          <h2>About me</h2>
+        <div class="section-title">
+          <h2>What I care about</h2>
           <p>
-            I am not just learning theory. I am trying to understand how systems work,
-            how attacks happen and how defenders detect suspicious activity.
+            Cybersecurity is not only about tools. It is about attention, discipline,
+            understanding systems and asking the right questions when something looks wrong.
           </p>
         </div>
 
-        <div class="grid">
-          <div class="info-card">
-            <div class="icon">🛡️</div>
-            <h3>Cybersecurity Focus</h3>
+        <div class="cards">
+          <article class="card">
+            <div class="card-number">1</div>
+            <h3>Defensive security</h3>
             <p>
-              I am focused on defensive security, SOC workflows, threat detection,
-              logs, alerts and incident investigation.
+              I am focused on the Blue Team side: monitoring systems, reading alerts,
+              understanding suspicious activity and learning how incidents are investigated.
             </p>
-          </div>
+          </article>
 
-          <div class="info-card">
-            <div class="icon">🐧</div>
-            <h3>Linux & Infrastructure</h3>
+          <article class="card">
+            <div class="card-number">2</div>
+            <h3>Strong fundamentals</h3>
             <p>
-              I work with Linux, terminal tools, basic server setup, permissions,
-              networking commands and system administration fundamentals.
+              I believe good cybersecurity starts with basics: Linux, networks, DNS,
+              HTTP, permissions, logs, terminals and how real infrastructure works.
             </p>
-          </div>
+          </article>
 
-          <div class="info-card">
-            <div class="icon">🌐</div>
-            <h3>Networks & Web Security</h3>
+          <article class="card">
+            <div class="card-number">3</div>
+            <h3>Practical growth</h3>
             <p>
-              I study DNS, HTTP, ports, network traffic, security headers and the
-              basics of how internet services are protected.
+              I want to grow through practice: labs, small projects, troubleshooting,
+              documentation and real technical problems, not just theory.
             </p>
-          </div>
+          </article>
         </div>
       </section>
 
-      <section id="focus">
-        <div class="section-head">
-          <h2>What I am looking for</h2>
-          <p>
-            I am looking for an opportunity where I can grow, work with real tools,
-            learn from stronger specialists and become useful in cybersecurity.
-          </p>
-        </div>
-
-        <div class="work-box">
+      <section id="work">
+        <div class="strip">
           <div>
-            <h2>Open to junior roles & internships</h2>
+            <h2>Looking for work, internship or junior opportunity.</h2>
             <p>
-              I am interested in SOC Analyst, Cybersecurity Intern, Junior Security Analyst,
-              Linux/IT Support with security focus, and entry-level technical roles where
-              I can work with monitoring, investigation, systems and networks.
+              I am open to roles related to SOC, cybersecurity, IT support with security focus,
+              Linux administration, network monitoring and entry-level security operations.
+              I am ready to learn, work seriously and improve every day.
             </p>
           </div>
 
-          <a class="btn primary" href="mailto:eldar@eldark.xyz">Hire / Contact</a>
+          <a class="btn" href="mailto:eldar@eldark.xyz">Send email</a>
         </div>
       </section>
 
       <section id="skills">
-        <div class="section-head">
-          <h2>Skills & interests</h2>
+        <div class="section-title">
+          <h2>Skills I am building</h2>
           <p>
-            My current stack is focused on the foundation that every strong cybersecurity
-            specialist needs: systems, networks, logs, tools and discipline.
+            This is my current technical direction. I prefer to be honest:
+            I am still growing, but I am focused and consistent.
           </p>
         </div>
 
         <div class="skills">
           <span class="skill">Cybersecurity</span>
           <span class="skill">SOC Analysis</span>
+          <span class="skill">Blue Team</span>
           <span class="skill">Linux</span>
           <span class="skill">Networking</span>
           <span class="skill">DNS</span>
           <span class="skill">HTTP / HTTPS</span>
-          <span class="skill">Git & GitHub</span>
-          <span class="skill">Cloudflare</span>
-          <span class="skill">Wireshark</span>
           <span class="skill">Logs</span>
-          <span class="skill">Bash basics</span>
-          <span class="skill">Security mindset</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">Wireshark</span>
+          <span class="skill">Cloudflare</span>
+          <span class="skill">Bash Basics</span>
         </div>
       </section>
 
       <section id="contact">
-        <div class="section-head">
+        <div class="section-title">
           <h2>Contact</h2>
           <p>
-            If you are looking for a motivated junior cybersecurity learner,
-            feel free to contact me.
+            If you are looking for a motivated beginner in cybersecurity,
+            you can contact me here.
           </p>
         </div>
 
         <div class="contact-grid">
-          <a class="contact-card" href="mailto:eldar@eldark.xyz">
+          <a class="contact" href="mailto:eldar@eldark.xyz">
             <span>Email</span>
             <strong>eldar@eldark.xyz</strong>
           </a>
 
-          <a class="contact-card" href="https://github.com/Eldar1of1" target="_blank">
+          <a class="contact" href="https://github.com/Eldar1of1" target="_blank">
             <span>GitHub</span>
             <strong>github.com/Eldar1of1</strong>
           </a>
 
-          <a class="contact-card" href="https://t.me/eldar1of1" target="_blank">
+          <a class="contact" href="https://t.me/eldar1of1" target="_blank">
             <span>Telegram</span>
             <strong>@eldar_kar</strong>
           </a>
@@ -725,7 +673,10 @@
   </div>
 
   <footer>
-    © 2026 Eldar Karayev — Cybersecurity, Linux & Network Security
+    <div class="container">
+      <span>© 2026 Eldar Karayev</span>
+      <span>Cybersecurity • Linux • Networks • SOC</span>
+    </div>
   </footer>
 </body>
 </html>
